@@ -3,7 +3,7 @@ project(csm)
 
 find_package(catkin REQUIRED)
 
-catkin_package(INCLUDE_DIRS src
+catkin_package(INCLUDE_DIRS src src/lib
   LIBRARIES csm)
 
 SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src)
@@ -133,7 +133,7 @@ INSTALL(TARGETS csm
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
 
-foreach(dir src/csm src/csm/hsm src/csm/mbicp src/csm/icp src/csm/gpm src/csm/structprior)
+foreach(dir src/csm src/csm/hsm src/csm/mbicp src/csm/icp src/csm/gpm src/csm/structprior src/lib/json-c)
   FILE(GLOB csm_headers "${dir}/*.h")
   foreach(header ${csm_headers} )
     INSTALL(FILES ${header} DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
